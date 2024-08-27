@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Navbar = () => {
   return (
-    <section className='flex items-center justify-between p-4'>
+    <section className='flex items-center justify-between p-2'>
       <Link href="/" className="flex items-center justify-start p-2 gap-2">
         <Image src="/logo.webp" alt="Logotipo academia" width={100} height={20} />
       </Link>
