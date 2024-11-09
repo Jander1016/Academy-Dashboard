@@ -1,6 +1,7 @@
 'use client'
-import Image from 'next/image';
+
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
+import WraperCards from './WraperCards';
 
 const data = [
   {
@@ -20,39 +21,40 @@ const data = [
   },
 ];
 
-export const CountChart = () => (
+const CountChart = () => (
   <>
-    <article className='flex items-center justify-between'>
-      <span className="text-lg font-semibold bg-white px-2 rounded-full text-green-600">Alumnos</span>
-      <Image src={'/moreDark.png'} alt="Indicadores" width={20} height={20} />
-    </article>
-    <article className="relative w-full h-[75%]">
-      <ResponsiveContainer>
-        <RadialBarChart 
-          cx="50%"
-          cy="50%"
-          innerRadius="40%"
-          outerRadius="100%"
-          barSize={20}
-          data={data}
-        >
-          <RadialBar
-            label={{ position: 'insideStart', fill: '#fff' }}
-            background
-            dataKey="count" />
-          <Legend iconSize={5} layout="vertical" verticalAlign="bottom" />
-        </RadialBarChart>
-      </ResponsiveContainer>
-      <Image
-        src={"/maleFemale.png"}
-        alt='Alumnos'
-        width={50}
-        height={50}
-        className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
-      />
-    </article>
-    <article>
-      soy derecha
-    </article>
+    <WraperCards title="Estudiantes por nivel" className='h-full'>
+      {/* chart */}
+      <article className="relative w-full h-[75%]">
+        <ResponsiveContainer>
+          <RadialBarChart
+            cx="50%"
+            cy="50%"
+            innerRadius="40%"
+            outerRadius="100%"
+            barSize={20}
+            data={data}
+          >
+            <RadialBar
+              label={{ position: 'insideStart', fill: '#fff' }}
+              background
+              dataKey="count"
+            />
+            <Legend
+              margin={{ top: 0, right: 0, bottom: -310, left: 0 }}
+            />
+          </RadialBarChart>
+        </ResponsiveContainer>
+        <img
+          src={"/maleFemale.png"}
+          alt='Alumnos'
+          width={50}
+          height={50}
+          className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
+        />
+      </article>
+    </WraperCards>
   </>
 )
+
+export default CountChart
