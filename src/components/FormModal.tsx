@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 
-const TeacherForm = dynamic(() => import("./forms/TeacherForme"), {
+const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
   loading: () => <h1>Loading...</h1>,
 });
 const StudentForm = dynamic(() => import("./forms/StudentForm"), {
